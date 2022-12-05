@@ -7,7 +7,7 @@ namespace App.API.Controllers;
 public class StatusController : ControllerBase
 {
     [HttpGet]
-    public IActionResult GetApplication(Guid applicationId)
+    public IActionResult Index()
     {
         return  Ok("App works");
     }
