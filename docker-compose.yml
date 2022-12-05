@@ -4,26 +4,26 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-  pair.app:
-    image: pair.app
-    ports:
-      - "5010"
-    depends_on:
-      - "postgres"
-    build:
-      context: .
-      dockerfile: Dockerfile
-  pair.gw:
-    image: pair.gw
-    depends_on:
-      - "postgres"
-    build:
-      context: .
-      dockerfile: Dockerfile
-  pair.identity:
-    image: pair.identity
+  app:
+    image: app
     ports:
       - "5020"
+    depends_on:
+      - "postgres"
+    build:
+      context: .
+      dockerfile: Dockerfile
+  gw:
+    image: gw
+    depends_on:
+      - "postgres"
+    build:
+      context: .
+      dockerfile: Dockerfile
+  identity:
+    image: identity
+    ports:
+      - "5010"
     depends_on:
       - "postgres"
     build:
