@@ -27,7 +27,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddDbContext<IdentityDbContext>(
-    options => options.UseNpgsql("User ID=postgres;Password=password;Host=postgres;Port=5432;Database=PAIR-Identity;Connection Lifetime=0;"));
+    options => options.UseNpgsql("Host=postgres;Port=5432;Database=Identity;Username=postgres;Password=password;"));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -63,7 +63,6 @@ using (var scope = app.Services.CreateScope())
     var context = services.GetRequiredService<IdentityDbContext>();
     if (context.Database.GetPendingMigrations().Any())
     {
-        context.Database.EnsureCreated();
         context.Database.Migrate();
     }
 }

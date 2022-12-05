@@ -7,7 +7,7 @@ services:
   app:
     image: app
     ports:
-      - "5020"
+      - "5021:5020"
     depends_on:
       - "postgres"
     build:
@@ -15,6 +15,8 @@ services:
       dockerfile: Dockerfile
   gw:
     image: gw
+    ports:
+      - "5001:5000"
     depends_on:
       - "postgres"
     build:
@@ -23,7 +25,7 @@ services:
   identity:
     image: identity
     ports:
-      - "5010"
+      - "5011:5010"
     depends_on:
       - "postgres"
     build:

@@ -27,7 +27,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(
-    options => options.UseNpgsql("User ID=postgres;Password=password;Host=postgres;Port=5432;Database=PAIR-Application;Connection Lifetime=0;"));
+    options => options.UseNpgsql("Host=postgres;Port=5432;Database=App;Username=postgres;Password=password;"));
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();
@@ -64,7 +64,6 @@ using (var scope = app.Services.CreateScope())
     var context = services.GetRequiredService<ApplicationDbContext>();
     if (context.Database.GetPendingMigrations().Any())
     {
-        context.Database.EnsureCreated();
         context.Database.Migrate();
     }
 }
