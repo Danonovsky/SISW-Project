@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+  pair.app:
+    image: pair.app
+    ports:
+      - "5010"
+    depends_on:
+      - "postgres"
+    build:
+      context: .
+      dockerfile: Dockerfile
+  pair.gw:
+    image: pair.gw
+    depends_on:
+      - "postgres"
+    build:
+      context: .
+      dockerfile: Dockerfile
+  pair.identity:
+    image: pair.identity
+    ports:
+      - "5020"
+    depends_on:
+      - "postgres"
+    build:
+      context: .
+      dockerfile: Dockerfile
