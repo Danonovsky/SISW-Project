@@ -2,6 +2,8 @@ version: "3"
 services:
   postgres:
     image: postgres
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
@@ -11,25 +13,17 @@ services:
       - "5020:80"
     depends_on:
       - "postgres"
-    secrets:
-      - secret
   gw:
     image: gw
     ports:
       - "5000:80"
-    secrets:
-      - secret
   identity:
     image: identity
     ports:
       - "5010:80"
     depends_on:
       - "postgres"
-    secrets:
-      - secret
   frontend:
     image: frontend
     ports:
       - "8000:8080"
-    secrets:
-      - secret

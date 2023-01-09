@@ -1,5 +1,2 @@
-kubectl delete deployments frontend
-kubectl delete deployments gw
-kubectl delete deployments app
-kubectl delete deployments identity
-kubectl delete deployments postgres
+kubectl delete deployments --all
+kubectl delete svc --all
