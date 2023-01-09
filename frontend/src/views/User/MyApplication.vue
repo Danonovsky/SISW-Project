@@ -206,7 +206,7 @@ export default{
     },
     methods:{
       ShowAll(){
-        axios.get('http://localhost:5000/app/api/Application',
+        axios.get('http://localhost:31000/app/api/Application',
         {headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
         })
         .then(res => {
@@ -233,7 +233,7 @@ export default{
         this.$router.push('/addApplication');
       },
       DetailsApplication(id){
-        axios.get('http://localhost:5000/app/api/Application/'+id,
+        axios.get('http://localhost:31000/app/api/Application/'+id,
         {headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
         })
         .then(res => {
