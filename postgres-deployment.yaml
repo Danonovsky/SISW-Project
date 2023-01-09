@@ -32,5 +32,12 @@ spec:
           image: postgres
           name: postgres
           resources: {}
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgresdata
+      volumes:
+        - name: postgresdata
+          persistentVolumeClaim:
+            claimName: postgres-volume-claim
       restartPolicy: Always
 status: {}
