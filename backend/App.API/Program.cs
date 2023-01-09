@@ -28,7 +28,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseNpgsql("Host=postgres;Port=5432;Database=App;Username=postgres;Password=password;"));
-builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpContextAccessor(); 
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -44,8 +44,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -56,6 +54,7 @@ app.UseCors(options =>
     options.AllowAnyOrigin();
 });
 
+app.MapGet("/", () => "App!");
 app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {

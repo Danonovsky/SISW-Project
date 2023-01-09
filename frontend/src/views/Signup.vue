@@ -87,7 +87,7 @@ export default {
             else if (this.confirmPassword.length < 3) this.error = "Hasło za krótkie [min: 3 znaki]";
             else if (this.confirmPassword !== this.password) this.error = "Hasła się różnią";
             else{
-                axios.post('https://localhost:5001/identity/api/Account/sign-up',newUser)
+                axios.post('http://localhost:5000/identity/api/Account/sign-up',newUser)
                 .then(res => {
                     console.log(res);
                     this.$router.push('/login');

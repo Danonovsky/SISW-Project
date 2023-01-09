@@ -43,8 +43,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -55,6 +53,7 @@ app.UseCors(options =>
     options.AllowAnyOrigin();
 });
 
+app.MapGet("/", () => "Identity!");
 app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {

@@ -2,6 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("reverseProxy"));
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -17,5 +18,8 @@ app.UseCors(options =>
     options.AllowAnyMethod();
     options.AllowAnyOrigin();
 });
+
+app.MapGet("/", () => "Gateway!");
+app.MapControllers();
 
 app.Run();
