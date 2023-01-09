@@ -1,0 +1,1 @@
+kubectl apply -f postgres-deployment.yaml,identity-deployment.yaml,app-deployment.yaml,gw-deployment.yaml,frontend-deployment.yaml

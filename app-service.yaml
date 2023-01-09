@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: C:\kompose.exe convert -f docker-compose.yaml
+    kompose.version: 1.27.0 (b0ed6a2c9)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  ports:
+    - name: "5020"
+      port: 5020
+      targetPort: 80
+  selector:
+    io.kompose.service: app
+status:
+  loadBalancer: {}
