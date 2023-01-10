@@ -9,12 +9,11 @@ metadata:
     io.kompose.service: gw
   name: gw
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: "5000"
       port: 5000
       targetPort: 80
-      nodePort: 31000
   selector:
     io.kompose.service: gw
 status:

@@ -9,12 +9,11 @@ metadata:
     io.kompose.service: identity
   name: identity
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: "5010"
       port: 5010
       targetPort: 80
-      nodePort: 31010
   selector:
     io.kompose.service: identity
 status:

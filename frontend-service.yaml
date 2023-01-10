@@ -9,12 +9,11 @@ metadata:
     io.kompose.service: frontend
   name: frontend
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: "8000"
       port: 8000
       targetPort: 8080
-      nodePort: 30000
   selector:
     io.kompose.service: frontend
 status:

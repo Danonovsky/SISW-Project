@@ -9,12 +9,11 @@ metadata:
     io.kompose.service: app
   name: app
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: "5020"
       port: 5020
       targetPort: 80
-      nodePort: 31020
   selector:
     io.kompose.service: app
 status:
