@@ -91,7 +91,7 @@ export default{
                     },
                     desiredRegistrationNumber: this.desiredRegistrationNumber
                 }
-                axios.post('http://localhost:31000/app/api/Application/add',car, {headers: {
+                axios.post('http://localhost:5000/app/api/Application/add',car, {headers: {
                     "Authorization": "Bearer " + localStorage.getItem('token'),
                     }} ).then(res => {
                         //if successfull

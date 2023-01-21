@@ -16,7 +16,9 @@ services:
   app:
     image: app
     ports:
-      - 5020:80
+      - 5020:5020
+    environment:
+      - ASPNETCORE_URLS=http://*:5020
     depends_on:
       - postgres
     networks:
@@ -25,7 +27,9 @@ services:
   gw:
     image: gw
     ports:
-      - 5000:80
+      - 5000:5000
+    environment:
+      - ASPNETCORE_URLS=http://*:5000
     networks:
       - front
       - back
@@ -33,7 +37,9 @@ services:
   identity:
     image: identity
     ports:
-      - 5010:80
+      - 5010:5010
+    environment:
+      - ASPNETCORE_URLS=http://*:5010
     networks:
       - back
     depends_on:
@@ -42,14 +48,14 @@ services:
   frontend:
     image: frontend
     ports:
-      - 8000:8080
+      - 5050:8080
     networks:
       - front
 
 networks:
   front:
   back:
-    external: false
+    internal: true
 
 volumes:
   postgres:

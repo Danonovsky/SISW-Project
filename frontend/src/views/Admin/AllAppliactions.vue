@@ -468,7 +468,7 @@ export default{
             this.ShowRejected();
         },
         ShowWaiting(){
-            axios.get('http://localhost:31000/app/api/Application/waiting',
+            axios.get('http://localhost:5000/app/api/Application/waiting',
             {headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
             })
             .then(res => {
@@ -481,7 +481,7 @@ export default{
             })
        }, 
        ShowAccepted(){
-            axios.get('http://localhost:31000/app/api/Application/accepted',
+            axios.get('http://localhost:5000/app/api/Application/accepted',
             {headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
             })
             .then(res => {
@@ -495,7 +495,7 @@ export default{
             })
        }, 
         ShowRejected(){
-            axios.get('http://localhost:31000/app/api/Application/rejected',
+            axios.get('http://localhost:5000/app/api/Application/rejected',
             {headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
             })
             .then(res => {
@@ -510,7 +510,7 @@ export default{
             })
        }, 
         DetailsApplication(id){
-            axios.get('http://localhost:31000/app/api/Application/'+id,
+            axios.get('http://localhost:5000/app/api/Application/'+id,
             {headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
             })
             .then(res => {
@@ -546,7 +546,7 @@ export default{
             // console.log(id);
         },
         AcceptApplication(id){
-            axios.get('http://localhost:31000/app/api/Application/'+id,
+            axios.get('http://localhost:5000/app/api/Application/'+id,
             {headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
             })
             .then(res => {
@@ -570,7 +570,7 @@ export default{
             // console.log(id);
          },
         RejectApplication(id){
-                        axios.get('http://localhost:31000/app/api/Application/'+id,
+                        axios.get('http://localhost:5000/app/api/Application/'+id,
             {headers: {"Authorization": "Bearer " + localStorage.getItem('token')}
             })
             .then(res => {
@@ -628,7 +628,7 @@ export default{
                 applicationId: this.currentIdApplication,
                 registrationNumber: this.desiredRegistrationNumber,
             }
-            axios.put('http://localhost:31000/app/api/Application/accept',acceptApplication, {headers: {
+            axios.put('http://localhost:5000/app/api/Application/accept',acceptApplication, {headers: {
                 "Authorization": "Bearer " + localStorage.getItem('token'),
                 }} ).then(res => {
                     //if successfull
@@ -662,7 +662,7 @@ export default{
                 applicationId: this.currentIdApplication,
                 reason: this.messageReject,
             }
-            axios.put('http://localhost:31000/app/api/Application/reject',rejectApplication, {headers: {
+            axios.put('http://localhost:5000/app/api/Application/reject',rejectApplication, {headers: {
                 "Authorization": "Bearer " + localStorage.getItem('token'),
                 }} ).then(res => {
                     //if successfull

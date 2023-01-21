@@ -62,7 +62,7 @@ export default{
             }
             else{
                    this.error = "";
-                axios.post('http://localhost:31000/identity/api/Account/sign-in',user)
+                axios.post('http://localhost:5000/identity/api/Account/sign-in',user)
                 .then(res => {
                     //if successfull
                     if(res.status === 200){
